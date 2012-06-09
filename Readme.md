@@ -9,7 +9,7 @@ For the most up-to-date documentation on JsDoc Toolkit see the official wiki at 
 
 Usage
 ------------
-Generate the documentation with JsDoc Toolkit, specify the template using the -t parameter
+Generate the documentation with JsDoc Toolkit, specifying the custom template:
 
 ```bash
 $ java -jar jsrun.jar app/run.js -a -t=templates/github my-javascript.js
@@ -18,6 +18,7 @@ $ java -jar jsrun.jar app/run.js -a -t=templates/github my-javascript.js
 Author
 ----------
 Tomas Perez - tom@0x101.com
+
 http://www.tomasperez.com
 
 License
