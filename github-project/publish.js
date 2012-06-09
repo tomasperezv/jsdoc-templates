@@ -17,6 +17,12 @@ function publish(symbolSet) {
 	
 	// create the folders and subfolders to hold the output
 	IO.mkPath((publish.conf.outDir+"symbols/src").split("/"));
+
+	// Copy static files
+	IO.mkPath(publish.conf.outDir+"/static");
+	IO.copyFile(publish.conf.templatesDir+"/static/github.png", publish.conf.outDir +'/static/');
+	IO.copyFile(publish.conf.templatesDir+"/static/avatar.png", publish.conf.outDir +'/static/');
+
 		
 	// used to allow Link to check the details of things being linked to
 	Link.symbolSet = symbolSet;
@@ -121,6 +127,7 @@ function publish(symbolSet) {
 	// output the file index page
 	var filesIndex = fileindexTemplate.process(allFiles);
 	IO.saveFile(publish.conf.outDir, "files"+publish.conf.ext, filesIndex);
+
 	fileindexTemplate = filesIndex = files = null;
 }
 

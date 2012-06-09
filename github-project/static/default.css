@@ -2,7 +2,6 @@
 body
 {
 	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
-	width: 800px;
 }
 
 .header
@@ -159,4 +158,61 @@ ul.inheritsList
 {
 	text-align: right;
 	font-size: 10px;
+}
+
+#header {
+	background: #FAFAFA;
+	background: -moz-linear-gradient(#FAFAFA,#EAEAEA);
+	background: -webkit-linear-gradient(#FAFAFA,#EAEAEA);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+	position: relative;
+	z-index: 10;
+	border-bottom: 1px solid #CACACA;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1);
+	height:45px;
+}
+
+#userbox {
+	margin-left: 80px;
+	line-height: 20px;
+	padding: 7px 0;
+}
+
+.site-logo img {
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+
+#user {
+	float: left;
+	font-weight: bold;
+	padding: 5px 0;
+	text-shadow: 0 1px 0 white;
+}
+
+#user .name {
+	line-height: 22px;
+}
+
+#userbox a {
+	color: #222;
+	-moz-transition: color .15s ease-in 0;
+	-webkit-transition: color .15s ease-in 0;
+	line-height: 16px;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#user img {
+	float: left;
+	margin: 1px 5px 0 0;
+	border-radius: 3px;
+}
+
+img {
+	border: 0;
 }
