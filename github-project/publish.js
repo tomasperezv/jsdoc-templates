@@ -20,6 +20,7 @@ function publish(symbolSet) {
 
 	// Copy static files
 	IO.mkPath(publish.conf.outDir+"/static");
+	IO.copyFile(publish.conf.templatesDir+"/static/base.css", publish.conf.outDir +'/static/');
 	IO.copyFile(publish.conf.templatesDir+"/static/github.png", publish.conf.outDir +'/static/');
 	IO.copyFile(publish.conf.templatesDir+"/static/avatar.png", publish.conf.outDir +'/static/');
 
@@ -75,7 +76,7 @@ function publish(symbolSet) {
 	// create a class index, displayed in the left-hand column of every class page
 	Link.base = "../";
  	publish.classesIndex = classesTemplate.process(classes); // kept in memory
-	
+
 	// create each of the class pages
 	for (var i = 0, l = classes.length; i < l; i++) {
 		var symbol = classes[i];
@@ -92,6 +93,16 @@ function publish(symbolSet) {
 	
 	// regenerate the index with different relative links, used in the index pages
 	Link.base = "";
+
+	// Remove '_global_'
+	var newClasses = [];
+	for (var i = 0; i < classes.length; i++){
+		if (classes[i].alias != '_global_') {
+			newClasses[newClasses.length] = classes[i];
+		}
+	}
+	classes = newClasses;
+
 	publish.classesIndex = classesTemplate.process(classes);
 	
 	// create the class index page
@@ -102,7 +113,7 @@ function publish(symbolSet) {
 	
 	var classesIndex = classesindexTemplate.process(classes);
 	IO.saveFile(publish.conf.outDir, "index"+publish.conf.ext, classesIndex);
-	classesindexTemplate = classesIndex = classes = null;
+	newClasses = classesindexTemplate = classesIndex = classes = null;
 	
 	// create the file index page
 	try {
